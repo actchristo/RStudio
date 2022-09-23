@@ -1,0 +1,45 @@
+
+#### Questão 1 a 4 cap. 5 v45 ####
+
+M <- matrix (0,4,5)
+
+array(M, dim = c(4, 5, 3))
+
+Nome_clientes <- c("cliente_1", "cliente_2", "cliente_3", "cliente_4")
+Nome_col <- c ("Nome", "Salario", "Idade", "Motivo_Emprestimo", "Valor_Solicitado")
+Nome_func <- c ("Melissa", "Carlos", "Luciana")
+
+array(M, dim = c (4,5,3), dimnames = list (Nome_clientes, Nome_col, Nome_func))
+
+funcionario1<-cbind(Nome=c("Marcos","Paulo","Joao","Kamila"),
+            Salario=c(4000,3000,4500,2300),
+            Idade=c(45,33,36,45),
+            Motivo=c("Compra de Carro","Reforma da Casa","Viagem","Compra de Casa"),
+            Valor.Pedido=c(45000,34000,20000,120000))
+
+funcionario2<-cbind(Nome=c("Marcela","Fábio","Luana","Romero"),
+            Salario=c(3200,4500,2500,1300),
+            Idade=c(34,30,56,54),
+            Motivo=c("Compra de Carro","Viagem","Viagem","Compra de Carro"),
+            Valor.Pedido=c(75000,55000,19000,90000))
+
+funcionario3<-cbind(Nome=c("Gustavo","Bruno","Joana","Vânia"),
+            Salario=c(11000,5600,1580,6300),
+            Idade=c(56,29,44,57),
+            Motivo=c("Compra de Casa","Viagem","Compra de Apartamento","Reforma da Casa"),
+            Valor.Pedido=c(55000,8000,21000,7000))
+
+Pedidos_Emprestimos <- array(c(funcionario1, funcionario2, funcionario3), dim = c (4,5,3), 
+                             dimnames = list (Nome_clientes, Nome_col, Nome_func))
+Pedidos_Emprestimos
+
+a<-comissao_Melissa <- sum (as.numeric (funcionario1 [ , 5]))
+b<-comissao_Carlos <- sum (as.numeric (funcionario2 [ , 5]))
+c<-comissao_Luciana <- sum (as.numeric (funcionario3 [ , 5]))
+
+comissao_Melissa
+comissao_Carlos
+comissao_Luciana
+
+max(a, b, c)
+

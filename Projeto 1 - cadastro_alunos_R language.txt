@@ -1,0 +1,74 @@
+###### PROJETO 1 ######
+
+{
+ 
+  nome<-as.character()
+  Nota1<-as.numeric()
+  Nota2<-as.numeric()
+  Nota3<-as.numeric()
+  Media_notas<-as.numeric()
+  Situação<-as.character()
+  
+  alunos<-cbind(nome, Nota1, Nota2, Nota3, Media_notas, Situação)
+  
+  alunos_df<-as.data.frame(alunos)
+  
+  cat("\n  Esta função realiza as seguintes Atividades:
+      1 - Cadastra alunos 
+      2 - Recebe suas notas
+      3 - Mostra sua média e diz se foi aprovado \n
+      Cadastro de Alunos --> Digite 1")
+  
+  x <- scan(n=1)
+  i <- 1
+
+while (x == 1)
+   {
+    print ("Nome:")
+    nome <- scan(what = character(), nmax = 1)
+    
+    print("Nota 1:")
+    Nota1 <- scan(n=1)
+    
+    print("Nota 2:")
+    Nota2 <- scan(n=1)
+    
+    print("Nota 3:")
+    Nota3 <- scan(n=1)
+   
+    notas <- c(Nota1, Nota2, Nota3)
+    
+      for(j in 1: length(notas))
+      {
+        cat("Nota na Prova", j, "---> ")
+        cat(" ", notas [j], "\n")
+      }
+    
+     Media_notas <- mean(notas)
+     Media_notas <- signif(Media_notas, 3)
+     cat("Média do Aluno:", Media_notas, "\n")
+    
+    if (Media_notas >= 7)
+    {
+      cat("\nAluno Aprovado\n\n")
+      Situação <- "Aprovado"  
+    }
+    
+    if (Media_notas < 7)
+    {
+      cat("\nAluno Reprovado\n\n")
+      Situação <-"Reprovado"  
+    }
+    
+    alunos_df[i, ] <- c(nome, Nota1, Nota2, Nota3, Media_notas, Situação)
+   
+    print("Cadastrar outro Aluno? Sim -> 1     Não -> 0")
+    x <- scan(n=1)
+    i <- i + 1
+  }    
+    
+    cat("\n    Obrigado\n")
+    cat("    Banco de Dados:\n\n")
+    
+    alunos_df 
+}
